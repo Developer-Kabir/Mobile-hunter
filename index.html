@@ -11,7 +11,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
+     <!-- search engin part -->
+     <header>
+        <!-- search section  -->
+        <section>
+            <div class="container mt-3 text-center text-uppercase">
+                <h1>Phone Gallery</h1>
+
+                <div class="search mx-auto shadow p-4 rounded">
+                    <input id='search-input' type="text"
+                        class="form-control bg-transparent border-2 border-success text-center" placeholder="TYPE HERE FOR SEARCH">
+                    <!-- search button -->
+                    <button onclick="search()" id="search_btn" class="button btn btn-success ">
+                        SEARCH
+                    </button>
+                </div>
+            </div>
+        </section>
+        <p id="results-number-section" class="results-number-section text-center"></p>
+    </header>
     
 
     <!-- bootstrap js  -->
