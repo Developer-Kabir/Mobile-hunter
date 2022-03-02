@@ -19,7 +19,7 @@
                 <h1>Phone Gallery</h1>
 
                 <div class="search mx-auto shadow p-4 rounded">
-                    <input id='search-input' type="text"
+                    <input id='user-input' type="text"
                         class="form-control bg-transparent border-2 border-success text-center" placeholder="TYPE HERE FOR SEARCH">
                     <!-- search button -->
                     <button onclick="search()" id="search_btn" class="button btn btn-success ">
@@ -28,18 +28,18 @@
                 </div>
             </div>
         </section>
-        <p id="results-number-section" class="results-number-section text-center"></p>
+        <p id="result-number" class="result-number text-center"></p>
     </header>
 
     <main>
         <!-- alert message for error -->
         <section class="container text-center text-uppercase">
-            <p class="no-search-result" id="empty-inputField">Please type something to find your phone</p>
-            <p class="empty-inputField" id="no-search-result">There Are No Product With This Name. Please Try Something Different!!!</p>
+            <p class="no-result" id="empty-inputField">Please type something to find your phone</p>
+            <p class="empty-inputField" id="no-result">There Are No Product With This Name. Please Try Something Different!!!</p>
         </section>
 
         <!-- single product details part -->
-        <div id="product-details">
+        <div id="products-details">
 
         </div>
 

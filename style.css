@@ -26,7 +26,7 @@ body{
 
 
 /* search result part design  */
-.no-search-result{
+.no-result{
     color: green;
     font-size: 25px;
     font-weight: bold;
@@ -68,7 +68,7 @@ body{
     align-items: center; 
 }
 
-.results-number-section{
+.result-number{
     color: green;
     font-weight: bold;
     display: none;

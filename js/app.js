@@ -1,17 +1,17 @@
 const productSearchResults = document.getElementById('search-results');
-const productDetail = document.getElementById('product-details');
+const productDetail = document.getElementById('products-details');
 
 const search = () => {
-    let userInput = document.getElementById('search-input').value;
+    let userInput = document.getElementById('user-input').value;
     userInput = userInput.toLowerCase();
     // console.log(searchText);
     if (userInput === '') {
         productSearchResults.textContent = '';
         productDetail.textContent = '';
-        document.getElementById('search-input').value = '';
+        document.getElementById('user-input').value = '';
         document.getElementById('empty-inputField').style.display = 'block';
-        document.getElementById('no-search-result').style.display = 'none';
-        document.getElementById('results-number-section').style.display = 'none';
+        document.getElementById('no-result').style.display = 'none';
+        document.getElementById('result-number').style.display = 'none';
         document.getElementById('see-more-btn').style.display = 'none';
     }
     else {
@@ -27,10 +27,10 @@ const searcedhPhone = (phones) => {
     if (phones.length === 0) {
         productDetail.textContent = '';
         productSearchResults.textContent = '';
-        document.getElementById('search-input').value = '';
+        document.getElementById('user-input').value = '';
         document.getElementById('empty-inputField').style.display = 'none'
-        document.getElementById('no-search-result').style.display = 'block'
-        document.getElementById('results-number-section').style.display = 'none';
+        document.getElementById('no-result').style.display = 'block'
+        document.getElementById('result-number').style.display = 'none';
         document.getElementById('see-more-btn').style.display = 'none';
     }
     else if (phones.length > 0 && phones.length >= 20) {
@@ -38,11 +38,11 @@ const searcedhPhone = (phones) => {
         productDetail.textContent = '';
         productSearchResults.textContent = '';
         document.getElementById('see-more-btn').style.display = 'none';
-        document.getElementById('search-input').value = '';
-        document.getElementById('no-search-result').style.display = 'none';
+        document.getElementById('user-input').value = '';
+        document.getElementById('no-result').style.display = 'none';
         document.getElementById('empty-inputField').style.display = 'none';
-        document.getElementById('results-number-section').style.display = 'block';
-        document.getElementById('results-number-section').innerText = `20 Results Shown out of ${phones.length} Results!!!`;
+        document.getElementById('result-number').style.display = 'block';
+        document.getElementById('result-number').innerText = `20 Results out of ${phones.length} Results!!!`;
 
         if (phones.length > 20) {
             phones.slice(0, 20).map(phone => {
@@ -52,8 +52,8 @@ const searcedhPhone = (phones) => {
                         <img src="${phone.image}" class="card-img-top mx-auto img-fluid w-75">
                         <div class="card-body  d-flex flex-column">
                             <h5 class="card-title text-center">${phone.phone_name}</h5>
-                            <h5 class="brand_name text-center">${phone.brand}</h5>
-                            <a href="#" onclick="getPhone('${phone.slug}')" class="btn btn-success mx-auto">Show Details</a>
+                            <h5 class="brand_name text-center">Brand: ${phone.brand}</h5>
+                            <a href="#" onclick="getPhone('${phone.slug}')" class="btn btn-success mx-auto">See Configuration</a>
                         </div>
                     </div>
                 `
@@ -65,11 +65,11 @@ const searcedhPhone = (phones) => {
             allItems.addEventListener('click', () => {
                 productDetail.textContent = '';
                 productSearchResults.textContent = '';
-                document.getElementById('search-input').value = '';
-                document.getElementById('no-search-result').style.display = 'none';
+                document.getElementById('user-input').value = '';
+                document.getElementById('no-result').style.display = 'none';
                 document.getElementById('empty-inputField').style.display = 'none';
-                document.getElementById('results-number-section').style.display = 'block';
-                document.getElementById('results-number-section').innerText = `${phones.length} Results out of ${phones.length} Results!!!`;
+                document.getElementById('result-number').style.display = 'block';
+                document.getElementById('result-number').innerText = `${phones.length} Results out of ${phones.length} Results!!!`;
 
 
                 // product card 
@@ -96,11 +96,11 @@ const searcedhPhone = (phones) => {
         productDetail.textContent = '';
         productSearchResults.textContent = '';
         document.getElementById('see-more-btn').style.display = 'none';
-        document.getElementById('search-input').value = '';
-        document.getElementById('no-search-result').style.display = 'none';
+        document.getElementById('user-input').value = '';
+        document.getElementById('no-result').style.display = 'none';
         document.getElementById('empty-inputField').style.display = 'none';
-        document.getElementById('results-number-section').style.display = 'block';
-        document.getElementById('results-number-section').innerText = `${phones.length} Results Shown out of ${phones.length} Results!!!`;
+        document.getElementById('result-number').style.display = 'block';
+        document.getElementById('result-number').innerText = `${phones.length} Results Shown out of ${phones.length} Results!!!`;
         phones.map(phone => {
             const div = document.createElement('div');
             div.innerHTML = `
@@ -127,7 +127,7 @@ const getPhone = (id) => {
 }
 // product configuration 
 const phoneDetails = (details) => {
-    document.getElementById('results-number-section').style.display = 'none';
+    document.getElementById('result-number').style.display = 'none';
     productDetail.textContent = '';
     const detailDiv = document.createElement('div');
     detailDiv.innerHTML = `
