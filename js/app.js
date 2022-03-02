@@ -52,7 +52,7 @@ const searchPhone = (phones) => {
                         <div class="card-body  d-flex flex-column">
                             <h5 class="card-title text-center">${phone.phone_name}</h5>
                             <h5 class="brand_name text-center">${phone.brand}</h5>
-                            <a href="#" onclick="getPhone('${phone.slug}')" class="btn btn-primary mx-auto">Show Details</a>
+                            <a href="#" onclick="getPhone('${phone.slug}')" class="btn btn-success mx-auto">Show Details</a>
                         </div>
                     </div>
                 `
@@ -157,7 +157,3 @@ const phoneDetails = (details) => {
     detailSection.appendChild(detailDiv);
 
 }
-
-
-
-

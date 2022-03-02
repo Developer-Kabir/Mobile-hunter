@@ -16,14 +16,14 @@ body{
 }
 
 .empty-inputField{
-    color: red;
+    color: green;
     font-size: 25px;
     font-weight: bold;
     display: none;
 }
 
 .no-search-result{
-    color: red;
+    color: green;
     font-size: 25px;
     font-weight: bold;
     display: none;
@@ -34,7 +34,10 @@ body{
     place-items: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 20px;
+    row-gap: 30px;
+}
+.card{
+    background-color:  #F8f9FA !important;
 }
 
 .brand_name{
@@ -46,9 +49,13 @@ body{
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
+    column-gap: 0px;
     margin-bottom: 5%;
     padding: 20px;
+}
+
+.product-detail-middle{
+    padding-right: 20px;
 }
 
 .product-detail-left{
