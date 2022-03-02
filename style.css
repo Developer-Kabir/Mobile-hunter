@@ -1,8 +1,10 @@
 body{
     margin: 0px;
     padding: 0px;
+    background-color: rgb(245, 255, 229);
 }
 
+/* search engin design */
 .search {
     display: grid;
     grid-template-columns: 4fr 1fr;
@@ -22,6 +24,8 @@ body{
     display: none;
 }
 
+
+/* search result part design  */
 .no-search-result{
     color: green;
     font-size: 25px;
@@ -29,16 +33,15 @@ body{
     display: none;
 }
 
-
 .search-results{
     place-items: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 30px;
 }
-.card{
-    background-color:  #F8f9FA !important;
-}
+
+/* product card design  */
+
 
 .brand_name{
     color: black;
@@ -65,10 +68,8 @@ body{
     align-items: center; 
 }
 
-
-
 .results-number-section{
-    color: red;
+    color: green;
     font-weight: bold;
     display: none;
 }
@@ -78,6 +79,9 @@ body{
     display: none;
 }
 
+
+/* media query part  */
+/* query for small device  */
 @media only screen and (max-width: 480px) {
     .search {
         display: grid;

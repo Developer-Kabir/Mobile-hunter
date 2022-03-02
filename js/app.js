@@ -1,13 +1,13 @@
-const searchResults = document.getElementById('search-results');
-const detailSection = document.getElementById('product-details');
+const productSearchResults = document.getElementById('search-results');
+const productDetail = document.getElementById('product-details');
 
 const search = () => {
-    let searchText = document.getElementById('search-input').value;
-    searchText = searchText.toLowerCase();
+    let userInput = document.getElementById('search-input').value;
+    userInput = userInput.toLowerCase();
     // console.log(searchText);
-    if (searchText === '') {
-        searchResults.textContent = '';
-        detailSection.textContent = '';
+    if (userInput === '') {
+        productSearchResults.textContent = '';
+        productDetail.textContent = '';
         document.getElementById('search-input').value = '';
         document.getElementById('empty-inputField').style.display = 'block';
         document.getElementById('no-search-result').style.display = 'none';
@@ -15,17 +15,18 @@ const search = () => {
         document.getElementById('see-more-btn').style.display = 'none';
     }
     else {
-        fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
+        fetch(`https://openapi.programming-hero.com/api/phones?search=${userInput}`)
             .then(response => response.json())
-            .then(data => searchPhone(data.data))
+            .then(data => searcedhPhone(data.data))
     }
 }
+// user input validation and search 
 
-const searchPhone = (phones) => {
+const searcedhPhone = (phones) => {
 
     if (phones.length === 0) {
-        detailSection.textContent = '';
-        searchResults.textContent = '';
+        productDetail.textContent = '';
+        productSearchResults.textContent = '';
         document.getElementById('search-input').value = '';
         document.getElementById('empty-inputField').style.display = 'none'
         document.getElementById('no-search-result').style.display = 'block'
@@ -34,8 +35,8 @@ const searchPhone = (phones) => {
     }
     else if (phones.length > 0 && phones.length >= 20) {
         console.log(phones.length);
-        detailSection.textContent = '';
-        searchResults.textContent = '';
+        productDetail.textContent = '';
+        productSearchResults.textContent = '';
         document.getElementById('see-more-btn').style.display = 'none';
         document.getElementById('search-input').value = '';
         document.getElementById('no-search-result').style.display = 'none';
@@ -56,20 +57,22 @@ const searchPhone = (phones) => {
                         </div>
                     </div>
                 `
-                searchResults.appendChild(div)
+                productSearchResults.appendChild(div)
                 // console.log(phone)
             })
-            const seeMore = document.getElementById('see-more-btn');
-            seeMore.style.display = 'block';
-            seeMore.addEventListener('click', () => {
-                detailSection.textContent = '';
-                searchResults.textContent = '';
+            const allItems = document.getElementById('see-more-btn');
+            allItems.style.display = 'block';
+            allItems.addEventListener('click', () => {
+                productDetail.textContent = '';
+                productSearchResults.textContent = '';
                 document.getElementById('search-input').value = '';
                 document.getElementById('no-search-result').style.display = 'none';
                 document.getElementById('empty-inputField').style.display = 'none';
                 document.getElementById('results-number-section').style.display = 'block';
-                document.getElementById('results-number-section').innerText = `${phones.length} Results Shown out of ${phones.length} Results!!!`;
+                document.getElementById('results-number-section').innerText = `${phones.length} Results out of ${phones.length} Results!!!`;
 
+
+                // product card 
                 phones.map(phone => {
                     const div = document.createElement('div');
                     div.innerHTML = `
@@ -82,16 +85,16 @@ const searchPhone = (phones) => {
                             </div>
                         </div>
                     `
-                    searchResults.appendChild(div)
+                    productSearchResults.appendChild(div)
                     // console.log(phone)
                 })
-                seeMore.style.display = 'none';
+                allItems.style.display = 'none';
             })
         }
     }
     else {
-        detailSection.textContent = '';
-        searchResults.textContent = '';
+        productDetail.textContent = '';
+        productSearchResults.textContent = '';
         document.getElementById('see-more-btn').style.display = 'none';
         document.getElementById('search-input').value = '';
         document.getElementById('no-search-result').style.display = 'none';
@@ -110,21 +113,22 @@ const searchPhone = (phones) => {
                     </div>
                 </div>
             `
-            searchResults.appendChild(div)
+            productSearchResults.appendChild(div)
             // console.log(phone)
         })
     }
 }
+// product details api calling 
 
 const getPhone = (id) => {
     fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
         .then(response => response.json())
         .then(data => phoneDetails(data.data))
 }
-
+// product configuration 
 const phoneDetails = (details) => {
     document.getElementById('results-number-section').style.display = 'none';
-    detailSection.textContent = '';
+    productDetail.textContent = '';
     const detailDiv = document.createElement('div');
     detailDiv.innerHTML = `
     
@@ -154,6 +158,6 @@ const phoneDetails = (details) => {
             </div>
         </div>
     `
-    detailSection.appendChild(detailDiv);
+    productDetail.appendChild(detailDiv);
 
 }
